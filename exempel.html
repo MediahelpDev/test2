@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="scripts.js"></script>
+        <style>
+            #password,#username{display: none;}
+        </style>
+    </head>
+    <html>
+        <h1>Hello!</h1>
+        <div id="infoBox"></div>
+        <span id="klocka"></span>
+
+        <br/>
+        
+
+        <input type="text" name="username" id="username" placeholder="Användarnamn" />
+        <input type="password" name="password" id="password" placeholder="Lösenord" />
+        <input type="button" id="loginButton" onclick="login()" value="Logga in" />
+        
+        <button type="button" id="testAjax" >Testa AJAX</button>
+
+        <script>
+            $("#testAjax").click(function(){
+                $.get("AJAX.txt",function(data,status){
+                    alert("innehållet i hämtade filen: " + data + " \n Status = " + status);
+                });
+            });
+
+        </script>
+        
+        <script>
+            document.getElementById("infoBox").innerHTML = "Idag är det: " + new Date().toLocaleDateString();
+            isLoggedIn();
+        </script>
+    </html>
+
+</html>
